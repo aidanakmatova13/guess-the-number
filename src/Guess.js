@@ -19,6 +19,7 @@ const Guess = () =>{
         } else  if (number === +guess){
             setMessage('You won!!!')
             setGamer(gamer+1)
+            setFreeAttempt(0)
         }
     }, [freeAttempt])
 
