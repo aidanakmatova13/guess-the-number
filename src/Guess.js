@@ -9,6 +9,17 @@ const Guess = () =>{
     const num = (e) => {
         setGuess(e.target.value)
     }
+    const check = () =>{
+        setFreeAttempt(freeAttempt-1)
+    }
+    useEffect(() =>{
+        if (number !== +guess && freeAttempt === 0){
+            setMessage('You lose :(')
+        } else  if (number === +guess){
+            setMessage('You won!!!')
+        }
+    }, [freeAttempt])
+
     // const check = () =>{
     //     if (number === +guess){
     //         setMessage('You won!!!')
@@ -20,16 +31,7 @@ const Guess = () =>{
     //         setComp(comp+1)
     //     }
     // }
-    const check = () =>{
-        setFreeAttempt(freeAttempt-1)
-    }
-    useEffect(() =>{
-        if (number !== +guess && freeAttempt === 0){
-            setMessage('You lose :(')
-        } else  if (number === +guess){
-            setMessage('You won!!!')
-        }
-    }, [freeAttempt])
+
     const reset = () =>{
         setNumber('')
         setMessage('')
