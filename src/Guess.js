@@ -15,8 +15,10 @@ const Guess = () =>{
     useEffect(() =>{
         if (number !== +guess && freeAttempt === 0){
             setMessage('You lose :(')
+            setComp(comp+1)
         } else  if (number === +guess){
             setMessage('You won!!!')
+            setGamer(gamer+1)
         }
     }, [freeAttempt])
 
@@ -48,7 +50,9 @@ const Guess = () =>{
                 <button onClick={reset}>RESET</button>
             </div>
             <div className='message'>{message}</div>
-            <div className='subtitle'>You have {freeAttempt} attempts left!</div>
+                {
+                    Boolean(freeAttempt)&&<div className='subtitle'>You have {freeAttempt} {freeAttempt === 1 ? 'attempt' : 'attempts' } left!</div>
+                }
             <h3>Player: {gamer}</h3>
             <h3>Computer: {comp}</h3>
             </div>
