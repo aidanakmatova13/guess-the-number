@@ -1,0 +1,25 @@
+
+.content{
+    text-align: center;
+    padding-top: 100px;
+}
+input{
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+button{
+    padding: 10px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    background-color: cornflowerblue;
+    border: 1px solid black;
+    border-radius: 6px;
+    font-size: 18px;
+}
+.subtitle{
+    font-size: 20px;
+}
+h3{
+    color: midnightblue;
+}
