@@ -11,19 +11,19 @@ const Guess = () =>{
     }
     const check = () =>{
         if (number.toString() === guess){
-            setMessage('You won!')
+            setMessage('You won!!!')
             setGamer(gamer+1)
         } else {
             setFreeAttempt(freeAttempt-1)
         } if (freeAttempt ===1){
-            setMessage('You lose!')
+            setMessage('You lose :(')
             setComp(comp+1)
         }
     }
     const reset = () =>{
         setNumber('')
         setMessage('')
-        setFreeAttempt('')
+        setFreeAttempt(3)
         setGuess('')
     }
     return(
@@ -35,7 +35,7 @@ const Guess = () =>{
                 <button onClick={check}>CHECK</button>
                 <button onClick={reset}>RESET</button>
             </div>
-            <div>{message}</div>
+            <div className='message'>{message}</div>
             <div className='subtitle'>You have {freeAttempt} attempts left!</div>
             <h3>Player: {gamer}</h3>
             <h3>Computer: {comp}</h3>
