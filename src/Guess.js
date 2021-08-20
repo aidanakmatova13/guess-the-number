@@ -27,7 +27,7 @@ const Guess = () =>{
         if (number !== +guess && freeAttempt === 0){
             setMessage('You lose :(')
         } else  if (number === +guess){
-            setMessage('won!!!')
+            setMessage('You won!!!')
         }
     }, [freeAttempt])
     const reset = () =>{
