@@ -53,10 +53,10 @@ const Guess = () =>{
             <div className='content'>
             <h1>Guess the number in 3 tries!</h1>
             <div>
-                <input onChange={num} type="number" placeholder='Enter the number' value={guess}/>
+                <input onChange={num} type={number} placeholder='Enter the number' value={guess}/>
                 <button onClick={check} disabled={!freeAttempts && guess > 10}>CHECK</button>
                 <button onClick={reset}>RESET</button>
-                <button onClick="refresh">REFRESH</button>
+                <button onClick={refresh}>REFRESH</button>
             </div>
             <div className='message'>{message}</div>
                 {
