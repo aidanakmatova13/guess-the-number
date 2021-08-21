@@ -56,7 +56,7 @@ const Guess = () =>{
                 <input onChange={num} type={number} placeholder='Enter the number' value={guess}/>
                 <button onClick={check} disabled={!freeAttempts && guess > 10}>CHECK</button>
                 <button onClick={reset}>RESET</button>
-                <button onClick={refresh}>REFRESH</button>
+                <button onClick="refresh">REFRESH</button>
             </div>
             <div className='message'>{message}</div>
                 {
