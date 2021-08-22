@@ -7,13 +7,6 @@ const Guess = () =>{
     const [comp, setComp] = useState(localStorage.getItem('comp') || 0)
     const [guess, setGuess] = useState('')
     const [hintMessage, setHintMessage] = useState('')
-    const refresh =() =>{
-        setGamer(0)
-        setComp(0)
-        setGuess('')
-        setFreeAttempts(3)
-        setMessage('')
-    }
     const num = (e) => {
         setGuess(e.target.value)
     }
@@ -26,11 +19,13 @@ const Guess = () =>{
             setGuess('')
             setFreeAttempts('')
             setComp(comp+1)
+            setHintMessage('')
         } else  if (number === +guess){
             setGamer(gamer+1)
             setMessage('You won!!!')
             setFreeAttempts('')
             setGuess('')
+            setHintMessage('')
             // setFreeAttempts(0)
         }
     }, [freeAttempts])
@@ -41,6 +36,13 @@ const Guess = () =>{
         setFreeAttempts(3)
         setGuess('')
         setHintMessage('')
+    }
+    const refresh =() =>{
+        setGamer(0)
+        setComp(0)
+        setGuess('')
+        setFreeAttempts(3)
+        setMessage('')
     }
     useEffect(() =>{
         localStorage.setItem('comp', comp);
