@@ -6,8 +6,13 @@ const Guess = () =>{
     const [gamer, setGamer] = useState( localStorage.getItem('gamer') || 0)
     const [comp, setComp] = useState(localStorage.getItem('comp') || 0)
     const [guess, setGuess] = useState('')
-
-
+    const refresh =() =>{
+        setGamer(0)
+        setComp(0)
+        setGuess('')
+        setFreeAttempts(3)
+        setMessage('')
+    }
     const num = (e) => {
         setGuess(e.target.value)
     }
@@ -17,13 +22,27 @@ const Guess = () =>{
     useEffect(() =>{
         if (number !== +guess && freeAttempts === 0 ){
             setMessage('You lose :(')
+            setFreeAttempts('')
             setComp(comp+1)
         } else  if (number === +guess){
             setGamer(gamer+1)
             setMessage('You won!!!')
+            setFreeAttempts('')
             // setFreeAttempts(0)
         }
     }, [freeAttempts])
+
+    const reset = () =>{
+        setNumber(Math.floor(Math.random()*10))
+        setMessage('')
+        setFreeAttempts(3)
+        setGuess('')
+    }
+    useEffect(() =>{
+        localStorage.setItem('comp', comp);
+        localStorage.setItem('gamer',gamer);
+    }, [gamer, comp])
+
 
     // const check = () =>{
     //     if (number === +guess){
@@ -37,26 +56,15 @@ const Guess = () =>{
     //     }
     // }
 
-    const reset = () =>{
-        setNumber(Math.floor(Math.random()*10))
-        setMessage('')
-        setFreeAttempts(3)
-        setGuess('')
-    }
-    useEffect(() =>{
-        localStorage.setItem('comp', comp);
-        localStorage.setItem('gamer',gamer);
-    }, [gamer, comp])
-
     return(
         <>
             <div className='content'>
             <h1>Guess the number in 3 tries!</h1>
             <div>
                 <input onChange={num} type={number} placeholder='Enter the number' value={guess}/>
-                <button onClick={check} disabled={!freeAttempts && guess > 10}>CHECK</button>
+                <button onClick={check} disabled={!freeAttempts}>CHECK</button>
                 <button onClick={reset}>RESET</button>
-                <button onClick="refresh">REFRESH</button>
+                <button onClick={refresh}>REFRESH</button>
             </div>
             <div className='message'>{message}</div>
                 {
