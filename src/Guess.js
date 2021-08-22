@@ -51,9 +51,9 @@ const Guess = () =>{
 
     const hint = () => {
         if (number > guess){
-            setHintMessage('(Недобор)')
+            setHintMessage(`Oops, It is higher than ${guess}`)
         } else if (number < guess) {
-            setHintMessage('(Перебор)')
+            setHintMessage(`Oops, It is lower than ${guess}`)
         } else if (number === +guess){
             setHintMessage('')
         }
@@ -107,5 +107,5 @@ export default Guess;
 
 
 //не нажимается когда поле пустое -tick-
-//недобор, перебор  //есть возможность играть с подсказками или без
+//недобор, перебор  //есть возможность играть с подсказками или без -tick-
 //показывать процент поражений побед
