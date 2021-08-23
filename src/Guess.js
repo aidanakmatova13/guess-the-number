@@ -76,7 +76,7 @@ const Guess = () =>{
     return(
         <>
             <div className='content'>
-            <h1>Guess the number in 3 tries!</h1>
+            <h1>Guess the number from 0 to 10 in 3 tries!</h1>
             <div>
                 <input onChange={num} type={number} placeholder='Enter the number' value={guess}/>
                 <button onClick={check} disabled={!guess.trim() || !freeAttempts}>CHECK</button>
